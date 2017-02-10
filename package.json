@@ -2,21 +2,29 @@
   "name": "npm-build-system",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/index.js",
   "scripts": {
-    "build": "yarn run clean && yarn run build:directories && yarn run build:html && yarn run build:css",
+    "build": "yarn run clean && yarn run build:directories && yarn run build:html && yarn run build:css && yarn run build:js",
     "clean": "rimraf build",
     "build:directories": "mkdirp build/styles",
     "build:html": "cp index.html build/",
-    "build:css": "node-sass --source-map true styles/styles.scss build/styles/styles.css"
+    "build:css": "node-sass --source-map true styles/styles.scss build/styles/styles.css",
+    "build:js": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
     "chokidar-cli": "^1.2.0",
-    "node-sass": "^4.5.0",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.5.4"
+    "node-sass": "^4.5.0",
+    "rimraf": "^2.5.4",
+    "webpack": "^2.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
   }
 }
