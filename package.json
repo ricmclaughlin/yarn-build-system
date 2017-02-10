@@ -1,0 +1,22 @@
+{
+  "name": "npm-build-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "yarn run clean && yarn run build:directories && yarn run build:html && yarn run build:css",
+    "clean": "rimraf build",
+    "build:directories": "mkdirp build/styles",
+    "build:html": "cp index.html build/",
+    "build:css": "node-sass --source-map true styles/styles.scss build/styles/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "node-sass": "^4.5.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4"
+  }
+}
